@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.backend.leno.scheduler.controller.converter.RecordDTOConverter;
+import com.backend.leno.scheduler.controller.dto.RecordDTO;
 import com.backend.leno.scheduler.model.Record;
 
 import com.backend.leno.scheduler.service.RecordService;
@@ -21,13 +24,16 @@ import com.backend.leno.scheduler.service.RecordService;
 public class RecordController {
 		
 	private final RecordService recordService;
+	private final RecordDTOConverter converter;
 	
-	public RecordController(RecordService recordService) {
+	public RecordController(RecordService recordService, 
+							RecordDTOConverter converter) {
 		this.recordService = recordService;
+		this.converter = converter;
 	}
 	
 	@GetMapping
-	public Page<Record> findPaginated(@RequestParam(name = "service", required = false) String service,
+	public Page<RecordDTO> findPaginated(@RequestParam(name = "service", required = false) String service,
             @RequestParam(name = "customer", required = false) String customer,
             @RequestParam(name = "location", required = false) String location,
             @RequestParam(name = "initialDate", required = false)
@@ -39,12 +45,13 @@ public class RecordController {
             @RequestParam(name = "page", defaultValue = "10") int page,
             @RequestParam(name = "size", defaultValue = "10") int size) {
 		
-		return recordService.findPaginated(service, customer, location, initialDate, finalDate, canceled, done, page, size);
+		return recordService.findPaginated(service, customer, location, initialDate, finalDate, canceled, done, page, size)
+				.map(converter::convert);
 	}
 	
 	
 	@PostMapping
-	public Record save(@RequestBody Record record) {
-		return recordService.save(record);
+	public RecordDTO save(@RequestBody RecordDTO record) {
+		return converter.convert(recordService.save(converter.convert(record)));
 	}
-}
+}	
