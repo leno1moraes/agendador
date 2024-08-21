@@ -143,3 +143,59 @@ logs/
 
 # Spring Boot specific
 spring.log
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+
+# production build
+build/
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+.vscode/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# testing
+coverage/
+
+# parcel-bundler cache
+.cache/
+
+# eslint cache
+.eslintcache
+
+# IDEs and editors
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+tmp/
+temp/
+
+# React Native specific
+.expo/
+*.expo/
+
+# WebStorm specific
+.idea/
+
+# Mac specific
+Thumbs.db
