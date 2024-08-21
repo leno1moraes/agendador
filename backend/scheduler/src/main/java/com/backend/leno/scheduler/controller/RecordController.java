@@ -18,6 +18,8 @@ import com.backend.leno.scheduler.model.Record;
 
 import com.backend.leno.scheduler.service.RecordService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/record")
 @CrossOrigin("*")
@@ -51,7 +53,7 @@ public class RecordController {
 	
 	
 	@PostMapping
-	public RecordDTO save(@RequestBody RecordDTO record) {
+	public RecordDTO save(@RequestBody @Valid RecordDTO record) {
 		return converter.convert(recordService.save(converter.convert(record)));
 	}
 }	
