@@ -6,8 +6,8 @@ export const getRecords = async (requestParams: RecordRequest) : Promise<RecordR
     const response = await axios.get(`${API_URL}/record`, {
         params: requestParams
     });
-    console.log("Teste - request: ", requestParams);
-    console.log("Teste - response: ", response.data);
+    //console.log("Teste - request: ", requestParams);
+    //console.log("Teste - response: ", response.data);
     return response.data;
 };
 
