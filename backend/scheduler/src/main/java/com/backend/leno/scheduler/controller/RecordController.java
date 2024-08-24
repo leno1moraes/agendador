@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.leno.scheduler.controller.converter.RecordDTOConverter;
 import com.backend.leno.scheduler.controller.dto.RecordDTO;
-import com.backend.leno.scheduler.model.Record;
 
 import com.backend.leno.scheduler.service.RecordService;
 
@@ -25,16 +24,16 @@ import jakarta.validation.Valid;
 @CrossOrigin("*")
 public class RecordController {
 		
-	private final RecordService recordService;
-	private final RecordDTOConverter converter;
+    private final RecordService recordService;
+    private final RecordDTOConverter converter;
+
+    public RecordController(RecordService recordService,
+                            RecordDTOConverter converter) {
+        this.recordService = recordService;
+        this.converter = converter;
+    }
 	
-	public RecordController(RecordService recordService, 
-							RecordDTOConverter converter) {
-		this.recordService = recordService;
-		this.converter = converter;
-	}
-	
-	@GetMapping
+    @GetMapping
 	public Page<RecordDTO> findPaginated(@RequestParam(name = "service", required = false) String service,
             @RequestParam(name = "customer", required = false) String customer,
             @RequestParam(name = "location", required = false) String location,
@@ -44,16 +43,16 @@ public class RecordController {
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate,
             @RequestParam(name = "done", required = false) Boolean done,
             @RequestParam(name = "canceled", required = false) Boolean canceled,
-            @RequestParam(name = "page", defaultValue = "10") int page,
-            @RequestParam(name = "size", defaultValue = "10") int size) {
-		
-		return recordService.findPaginated(service, customer, location, initialDate, finalDate, canceled, done, page, size)
-				.map(converter::convert);
-	}
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "100") int size) {
+        return recordService.findPaginated(service, customer, location, initialDate, finalDate, canceled, done, page, size)
+                .map(converter::convert);
+    }
 	
 	
-	@PostMapping
-	public RecordDTO save(@RequestBody @Valid RecordDTO record) {
-		return converter.convert(recordService.save(converter.convert(record)));
-	}
+    @PostMapping
+    public RecordDTO save(@RequestBody @Valid RecordDTO record) {
+        return converter.convert(recordService.save(converter.convert(record)));
+    }
+
 }	

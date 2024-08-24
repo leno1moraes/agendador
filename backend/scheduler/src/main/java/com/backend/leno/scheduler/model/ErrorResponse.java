@@ -15,15 +15,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class ErrorResponse {
-	
-	private int status;
-	private String message;
-	
-	public static ErrorResponse invalidArgument(FieldError fieldError) {
-		return ErrorResponse.builder()
-				.status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-				.message(fieldError.getDefaultMessage())
-				.build();
-	}
-	
+    private int status;
+    private String message;
+
+    public static ErrorResponse internalError(RuntimeException ex) {
+        return ErrorResponse.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .message(ex.getMessage())
+                .build();
+    }
+
+    public static ErrorResponse invalidArgumentsError(FieldError fieldError) {
+        return ErrorResponse.builder()
+                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .message(fieldError.getDefaultMessage())
+                .build();
+    }
 }

@@ -13,12 +13,19 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class CustomException {
-	
-	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<ErrorResponse> handleValidationException(MethodArgumentNotValidException ex){
-		FieldError fieldError = Objects.requireNonNull(ex.getBindingResult().getFieldError());
-		ErrorResponse errorResponse = ErrorResponse.invalidArgument(fieldError);
-		
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
-	}
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ErrorResponse> handleRuntimeException(RuntimeException ex) {
+        ErrorResponse errorResponse = ErrorResponse.internalError(ex);
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidationException(MethodArgumentNotValidException ex) {
+        FieldError fieldError = Objects.requireNonNull(ex.getBindingResult().getFieldError());
+        ErrorResponse errorResponse = ErrorResponse.invalidArgumentsError(fieldError);
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
 }
