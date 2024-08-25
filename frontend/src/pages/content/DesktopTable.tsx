@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBroom, faFilter, faPlus } from "@fortawesome/free-solid-svg-icons";
 import TablePagination from "../../components/TablePagination";
 import DesktopTableRegister from "./DesktopTableRegister";
+import { format } from 'date-fns';
 
 
 
@@ -77,6 +78,8 @@ const DesktopTable = ({
         })
     }
 
+
+
     return (
         <div className="d-none d-md-block">
             <Card bg="dark" text="white" className="mb-1">
@@ -86,7 +89,10 @@ const DesktopTable = ({
                         <Col sm={2}>
                             <Form.Group controlId="initialDate">
                                 <Form.Label>Data Inicial</Form.Label>
-                                <Form.Control value={request.initialDate} type="date" onChange={(e) => handleChange(e, 'initialDate')}/>
+                                <Form.Control value={request.initialDate} 
+                                                type="date" 
+                                                onChange={(e) => handleChange(e, 'initialDate')}
+                                />
                             </Form.Group>
                         </Col>
 

@@ -1,5 +1,4 @@
 import { Button, Table } from "react-bootstrap";
-import MobileRegister from "./MobileRegister";
 import { Record, RecordRequest, RecordResponse } from "../../api/models/Record";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +7,7 @@ import { PAGE } from "../../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faPlus } from "@fortawesome/free-solid-svg-icons";
 import FilterMobile from "./ FilterMobile";
+import MobileRegister from "./MobileRegister";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 interface Props {

@@ -1,9 +1,10 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Menu from './components/Menu';
 import Home from './pages/Home';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import FormRecord from './pages/FormRecord';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path='/record' element={<FormRecord />} />
         </Routes>
       </Router>
 
