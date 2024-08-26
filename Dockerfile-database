@@ -1,0 +1,4 @@
+FROM postgres:14
+
+# Copia os scripts SQL para a pasta que será lida na inicialização do contêiner
+COPY ./scripts_database /docker-entrypoint-initdb.d/

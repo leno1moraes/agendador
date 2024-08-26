@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   db_postgres:
-    image: postgres:14
+    build:
+      context: .
+      dockerfile: Dockerfile-database
     container_name: db_postgres
     environment:
       POSTGRES_USER: postgres
@@ -10,6 +12,7 @@ services:
       POSTGRES_DB: mydatabase
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./scripts_database:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
 
@@ -25,13 +28,6 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db_postgres:5432/mydatabase
     depends_on:
       - "db_postgres"
-    # environment:
-    #   - SPRING_PROFILES_ACTIVE=prod
-    # volumes:
-    #   - ./backend/scheduler/src:/app/src
-    #   - ./backend/scheduler/target:/app/target
-    # networks:
-    #   - backend_network
 
   frontend:
     build:
