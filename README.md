@@ -1,8 +1,10 @@
 ![image](https://github.com/user-attachments/assets/26ea8bba-33ab-4217-9a40-1d2a4ae21f69)
 
+
 # Projeto Agendador de Tarefas Diversos (Scheduler)
 
 Este projeto é um sistema de agendamento de tarefas diversas, desenvolvido utilizando Spring Boot no backend e React no frontend. O objetivo principal é fornecer uma ferramenta flexível para a criação, gerenciamento e acompanhamento de tarefas em diferentes contextos, como atividades pessoais ou profissionais.
+
 
 
 ## Requisitos
@@ -11,6 +13,26 @@ Este projeto é um sistema de agendamento de tarefas diversas, desenvolvido util
 2 - Docker version 27.1.1
 
 3 - Docker Compose
+
+
+
+## Iniciar projeto na máquina local
+
+docker-compose up -d
+
+
+## Deletar projeto na máquina local 
+
+docker-compose down
+
+
+### Apagar banco de dados
+1 - listar o volume do banco de dados
+docker volume ls
+
+2 - deletar 
+docker volume rm [nome do volume]
+
 
 
 ## Funcionalidades Principais
