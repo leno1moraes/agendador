@@ -33,6 +33,15 @@ services:
     # networks:
     #   - backend_network
 
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile-frontend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/app/frontend
+
   adminer:
     image: adminer
     restart: always

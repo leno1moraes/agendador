@@ -1,0 +1,26 @@
+# Use a imagem oficial do Node.js como base
+FROM node:18
+
+# Define o diretório de trabalho
+WORKDIR /app
+
+# Copie o package.json e package-lock.json (se existir)
+COPY frontend/package*.json ./
+
+# Instale as dependências do projeto
+RUN npm install
+
+# Copie o código fonte da aplicação para o contêiner
+COPY frontend/ .
+
+# Crie a build da aplicação React
+RUN npm run build
+
+# Instale um servidor estático para servir a aplicação
+RUN npm install -g serve
+
+# Exponha a porta 8080
+EXPOSE 8080
+
+# Comando para iniciar o servidor
+CMD ["serve", "-s", "build", "-l", "8080"]
