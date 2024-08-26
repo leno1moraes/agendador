@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/26ea8bba-33ab-4217-9a40-1d2a4ae21f69)
+
 # Projeto Agendador de Tarefas Diversos (Scheduler)
 
 Este projeto é um sistema de agendamento de tarefas diversas, desenvolvido utilizando Spring Boot no backend e React no frontend. O objetivo principal é fornecer uma ferramenta flexível para a criação, gerenciamento e acompanhamento de tarefas em diferentes contextos, como atividades pessoais ou profissionais.
