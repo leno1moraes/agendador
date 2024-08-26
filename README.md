@@ -4,6 +4,15 @@
 
 Este projeto é um sistema de agendamento de tarefas diversas, desenvolvido utilizando Spring Boot no backend e React no frontend. O objetivo principal é fornecer uma ferramenta flexível para a criação, gerenciamento e acompanhamento de tarefas em diferentes contextos, como atividades pessoais ou profissionais.
 
+
+## Requisitos
+1 - Ubuntu 22.04.4 LTS
+
+2 - Docker version 27.1.1
+
+3 - Docker Compose
+
+
 ## Funcionalidades Principais
 
 ### Cadastrar tarefas
@@ -16,15 +25,7 @@ Filtrar taferas segundos vários critérios
 
 ### Interface Amigável
 Interface intuitiva e fácil de usar, com suporte para múltiplos dispositivos.
-![image](https://github.com/user-attachments/assets/1d12c131-fd0b-4b2f-ba04-f6fa5d50e40f)
-
-![image](https://github.com/user-attachments/assets/2e3c5ded-b73f-4ae7-9851-323dc4901987)
-
-![image](https://github.com/user-attachments/assets/db36bb70-a424-41ed-be6e-6d67c2c03e5c)
-
-![image](https://github.com/user-attachments/assets/ddb66c24-6299-4d02-9bf3-e307b08a3f82)
-
-![image](https://github.com/user-attachments/assets/122e4113-6fb6-4795-bb29-32d0a24b3839)
+![361585100-122e4113-6fb6-4795-bb29-32d0a24b3839](https://github.com/user-attachments/assets/6f7bc286-3a95-4dc3-8126-67a523775cf3)
 
 
 
