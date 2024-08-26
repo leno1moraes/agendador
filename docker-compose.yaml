@@ -3,6 +3,7 @@ version: '3.8'
 services:
   db_postgres:
     image: postgres:14
+    container_name: db_postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -11,6 +12,26 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile-backend
+    container_name: backend
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: "default"
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db_postgres:5432/mydatabase
+    depends_on:
+      - "db_postgres"
+    # environment:
+    #   - SPRING_PROFILES_ACTIVE=prod
+    # volumes:
+    #   - ./backend/scheduler/src:/app/src
+    #   - ./backend/scheduler/target:/app/target
+    # networks:
+    #   - backend_network
 
   adminer:
     image: adminer
