@@ -6,8 +6,9 @@
 Este projeto é um sistema de agendamento de tarefas diversas, desenvolvido utilizando Spring Boot no backend e React no frontend. O objetivo principal é fornecer uma ferramenta flexível para a criação, gerenciamento e acompanhamento de tarefas em diferentes contextos, como atividades pessoais ou profissionais.
 
 
+## How to up!
 
-## Requisitos
+### Requisitos
 1 - Ubuntu 22.04.4 LTS
 
 2 - Docker version 27.1.1
@@ -16,17 +17,17 @@ Este projeto é um sistema de agendamento de tarefas diversas, desenvolvido util
 
 
 
-## Iniciar projeto na máquina local
+### Iniciar projeto na máquina local
 ```
 docker-compose up -d
 ```
 
-## Deletar projeto na máquina local 
+### Deletar projeto na máquina local 
 ```
 docker-compose down
 ```
 
-### Apagar banco de dados
+#### Apagar banco de dados
 1 - listar o volume do banco de dados
 ```
 docker volume ls
