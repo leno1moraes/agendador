@@ -17,22 +17,25 @@ Este projeto é um sistema de agendamento de tarefas diversas, desenvolvido util
 
 
 ## Iniciar projeto na máquina local
-
+```
 docker-compose up -d
-
+```
 
 ## Deletar projeto na máquina local 
-
+```
 docker-compose down
-
+```
 
 ### Apagar banco de dados
 1 - listar o volume do banco de dados
+```
 docker volume ls
+```
 
 2 - deletar 
+```
 docker volume rm [nome do volume]
-
+```
 
 
 ## Funcionalidades Principais
