@@ -51,6 +51,7 @@ Interface intuitiva e fácil de usar, com suporte para múltiplos dispositivos.
 
 
 
+Projeto baseado no curso: **https://www.udemy.com/course/spring-boot-react-fullstack-com-enfase-em-responsividade/**
 
 
 
